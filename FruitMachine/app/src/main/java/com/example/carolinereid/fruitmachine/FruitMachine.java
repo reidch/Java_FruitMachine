@@ -11,14 +11,10 @@ public class FruitMachine {
 
     private String name;
     private int bank;
-    public String symbol;
-    private ArrayList<Symbol> symbols;
 
-    public FruitMachine(String name, int bank, String symbol) {
+    public FruitMachine(String name, int bank) {
         this.name = name;
         this.bank = bank;
-        this.symbol = symbol;
-        this.symbols = new ArrayList<>();
     }
 
     public String getName() {
@@ -31,22 +27,6 @@ public class FruitMachine {
 
     public void setBank(int bank) {
         this.bank = bank;
-    }
-
-    public ArrayList<Symbol> getSymbols() {
-        return symbols;
-    }
-
-    public String getSymbol() {
-        return this.symbol;
-    }
-
-    public void add(Symbol symbol) {
-        symbols.add(symbol);
-    }
-
-    public String getSymbolAtIndex(int index) {
-        return symbols.get(index);
     }
 
     public Symbol getRandomSymbol(){
@@ -74,4 +54,15 @@ public class FruitMachine {
             return "0";
         }
     }
+
+//    public String resultJackpot() {
+//        ArrayList<Symbol> results = new ArrayList<Symbol>();
+//        results = spinWheels();
+//        boolean retval = results.contains("pie");
+//        if (retval == true) {
+//            return "You've hit the jackpot!";
+//        } else {
+//            return "Keep your eyes on the pies!";
+//        }
+//    }
 }

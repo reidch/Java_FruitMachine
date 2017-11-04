@@ -15,15 +15,20 @@ import static org.junit.Assert.assertEquals;
 public class FruitMachineTest {
 
     FruitMachine fruitMachine;
-    Symbol symbol;
+//    Symbol symbol;
     ArrayList<String> testSymbols;
+//    Symbol spySymbol;
 
     @Before
     public void before() {
-        fruitMachine = new FruitMachine("Eyes on the pies", 500, "pie");
+        fruitMachine = new FruitMachine("Eyes on the pies", 500);
         testSymbols = new ArrayList<>();
-        testSymbols.add("Lime");
-        testSymbols.add("Chocolate");
+//        testSymbols.add("Cherry");
+//        testSymbols.add("Cherry");
+//        testSymbols.add("Cherry");
+//        Symbol symbol = new Symbol("cherry");
+//        spySymbol = Mockito.spy(Symbol);
+//        fruitMachine = new FruitMachine(spySymbol);
     }
 
     @Test
@@ -32,24 +37,27 @@ public class FruitMachineTest {
     }
 
     @Test
-    public void testGetSymbols(){
-        assertEquals("pie", fruitMachine.getSymbol());
-    }
-
-    @Test
-    public void getSymbolAtIndex(){
-        Symbol symbols = new Symbol(testSymbols);
-        String result = symbols.getSymbolAtIndex(1);
-        assertEquals("Chocolate", result);
-    }
-
-    @Test
     public void getRandomSymbol(){
-        Symbol spy = Mockito.spy(new Symbol(testSymbols));
-        Mockito.when(spy.getRandomSymbol()).thenReturn(1);
-        String symbol = spy.getSymbol();
-        assertEquals("Chocolate", symbol);
+        ArrayList<Symbol> row = new ArrayList<>();
+        row.add(Symbol.CHERRY);
+        row.add(Symbol.CHERRY);
+        row.add(Symbol.CHERRY);
+        FruitMachine spy = Mockito.spy(new FruitMachine(3));
+        Mockito.when(spy.spinWheels()).thenReturn();
+        assertEquals(ArrayList<"Cherry, Cherry, Cherry">, fruitMachine.spinWheels());
     }
+
+//    @Test
+//    public void testGetRandomSymbol(){
+//        Mockito.when(spySymbol.spinWheels()).thenReturn("lemon");
+//        boolean result = fruitMachine.spinWheels();
+//        assertEquals(false, result);
+//    }
+
+//    @Test
+//    public void testReturnsJackpot(){
+//        assertEquals("You've hit the jackpot!", fruitMachine.resultJackpot());
+//    }
 }
 
 
