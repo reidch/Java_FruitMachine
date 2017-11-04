@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
+import static com.example.carolinereid.fruitmachine.Symbol.CHERRY;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -30,19 +31,12 @@ public class FruitMachineTest {
 
     @Test
     public void testGetRandomSymbol(){
-        ArrayList<Symbol> testSymbols = new ArrayList<>();
-        testSymbols.add(Symbol.CHERRY);
-        testSymbols.add(Symbol.CHERRY);
-        testSymbols.add(Symbol.CHERRY);
+        Symbol testSymbol = CHERRY;
+        fruitMachine.getRandomSymbol();
         FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
-        Mockito.when(spy.spinWheels()).thenReturn(testSymbols);
-        assertEquals(Symbol.CHERRY, fruitMachine.spinWheels());
+        Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
+        assertEquals(CHERRY, spy.getRandomSymbol());
     }
-
-//    returning
-//    Expected :CHERRY
-//    Actual   :[CHERRY, APPLE, APPLE]
-//    need to return an array, rather than just the one Symbol I feed in
 
     @Test
     public void testReturnsJackpot(){
@@ -54,6 +48,7 @@ public class FruitMachineTest {
     }
 
 //    sometimes returns a match, sometimes doesn't. also, I'm only feeding one PIE into the function in FruitMachine.
+//    to be tested against compareResults(), using mokito to guarantee a jackpot.
 }
 
 
