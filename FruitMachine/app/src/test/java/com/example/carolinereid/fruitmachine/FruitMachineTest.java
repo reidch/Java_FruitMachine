@@ -15,17 +15,12 @@ import static org.junit.Assert.assertEquals;
 public class FruitMachineTest {
 
     FruitMachine fruitMachine;
-//    Symbol symbol;
     ArrayList<String> testSymbols;
-//    Symbol spySymbol;
 
     @Before
     public void before() {
         fruitMachine = new FruitMachine("Eyes on the pies", 500);
         testSymbols = new ArrayList<>();
-//        testSymbols.add("Cherry");
-//        testSymbols.add("Cherry");
-//        testSymbols.add("Cherry");
 //        Symbol symbol = new Symbol("cherry");
 //        spySymbol = Mockito.spy(Symbol);
 //        fruitMachine = new FruitMachine(spySymbol);
@@ -37,14 +32,14 @@ public class FruitMachineTest {
     }
 
     @Test
-    public void getRandomSymbol(){
-        ArrayList<Symbol> row = new ArrayList<>();
-        row.add(Symbol.CHERRY);
-        row.add(Symbol.CHERRY);
-        row.add(Symbol.CHERRY);
-        FruitMachine spy = Mockito.spy(new FruitMachine(3));
-        Mockito.when(spy.spinWheels()).thenReturn();
-        assertEquals(ArrayList<"Cherry, Cherry, Cherry">, fruitMachine.spinWheels());
+    public void testGetRandomSymbol(){
+        ArrayList<Symbol> testSymbols = new ArrayList<>();
+        testSymbols.add(Symbol.CHERRY);
+        testSymbols.add(Symbol.CHERRY);
+        testSymbols.add(Symbol.CHERRY);
+        FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
+        Mockito.when(spy.spinWheels()).thenReturn(testSymbols);
+        assertEquals(Symbol.CHERRY, fruitMachine.spinWheels());
     }
 
 //    @Test
