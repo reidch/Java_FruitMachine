@@ -26,9 +26,6 @@ public enum Symbol {
 
     public ArrayList<Symbol> spinWheels() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
-//        results.add(getRandomSymbol());
-//        results.add(getRandomSymbol());
-//        results.add(getRandomSymbol());
 
         return results;
     }

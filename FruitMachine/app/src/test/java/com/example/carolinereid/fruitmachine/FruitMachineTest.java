@@ -21,9 +21,6 @@ public class FruitMachineTest {
     public void before() {
         fruitMachine = new FruitMachine("Eyes on the pies", 500);
         testSymbols = new ArrayList<>();
-//        Symbol symbol = new Symbol("cherry");
-//        spySymbol = Mockito.spy(Symbol);
-//        fruitMachine = new FruitMachine(spySymbol);
     }
 
     @Test
@@ -42,17 +39,21 @@ public class FruitMachineTest {
         assertEquals(Symbol.CHERRY, fruitMachine.spinWheels());
     }
 
-//    @Test
-//    public void testGetRandomSymbol(){
-//        Mockito.when(spySymbol.spinWheels()).thenReturn("lemon");
-//        boolean result = fruitMachine.spinWheels();
-//        assertEquals(false, result);
-//    }
+//    returning
+//    Expected :CHERRY
+//    Actual   :[CHERRY, APPLE, APPLE]
+//    need to return an array, rather than just the one Symbol I feed in
 
-//    @Test
-//    public void testReturnsJackpot(){
-//        assertEquals("You've hit the jackpot!", fruitMachine.resultJackpot());
-//    }
+    @Test
+    public void testReturnsJackpot(){
+        ArrayList<Symbol> results = new ArrayList<Symbol>();
+        results.add(Symbol.PIE);
+        results.add(Symbol.PIE);
+        results.add(Symbol.PIE);
+        assertEquals("You've hit the jackpot!", fruitMachine.resultJackpot());
+    }
+
+//    sometimes returns a match, sometimes doesn't. also, I'm only feeding one PIE into the function in FruitMachine.
 }
 
 

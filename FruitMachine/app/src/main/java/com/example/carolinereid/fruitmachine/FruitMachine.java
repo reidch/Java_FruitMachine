@@ -29,7 +29,7 @@ public class FruitMachine {
         this.bank = bank;
     }
 
-    public Symbol getRandomSymbol(){
+    public Symbol getRandomSymbol() {
         Symbol[] fruit = Symbol.values();
         Random rand = new Random();
         int newRandom = rand.nextInt(fruit.length);
@@ -45,7 +45,7 @@ public class FruitMachine {
         return results;
     }
 
-    public String compareResults(){
+    public String compareResults() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
         if (results.get(0) == results.get(1) && results.get(1) == results.get(2)) {
@@ -55,14 +55,14 @@ public class FruitMachine {
         }
     }
 
-//    public String resultJackpot() {
-//        ArrayList<Symbol> results = new ArrayList<Symbol>();
-//        results = spinWheels();
-//        boolean retval = results.contains("pie");
-//        if (retval == true) {
-//            return "You've hit the jackpot!";
-//        } else {
-//            return "Keep your eyes on the pies!";
-//        }
-//    }
+    public String resultJackpot() {
+        ArrayList<Symbol> results = new ArrayList<Symbol>();
+        results = spinWheels();
+        boolean retval = results.contains(Symbol.PIE);
+        if (retval) {
+            return "You've hit the jackpot!";
+        } else {
+            return "Keep your eyes on the pies!";
+        }
+    }
 }
