@@ -20,6 +20,7 @@ public class FruitMachineTest {
     FruitMachine fruitMachine;
     ArrayList<String> testSymbols;
 
+
     @Before
     public void before() {
         fruitMachine = new FruitMachine("Eyes on the pies", 500);

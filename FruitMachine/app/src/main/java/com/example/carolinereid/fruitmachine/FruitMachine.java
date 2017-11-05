@@ -58,10 +58,6 @@ public class FruitMachine {
     public String resultJackpot() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
-
-//        boolean retval = results.contains(Symbol.PIE);
-//        if (retval) {
-//        if (results.get(0) == Symbol.PIE && results.get(0) == results.get(1) && results.get(1) == results.get(2)) {
         if (results.get(0) == Symbol.PIE && results.get(1) == Symbol.PIE && results.get(2) == Symbol.PIE) {
             return "You've hit the jackpot!";
         } else {
