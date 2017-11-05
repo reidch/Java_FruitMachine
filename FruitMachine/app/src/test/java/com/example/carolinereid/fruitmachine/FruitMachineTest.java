@@ -7,6 +7,8 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 
 import static com.example.carolinereid.fruitmachine.Symbol.CHERRY;
+import static com.example.carolinereid.fruitmachine.Symbol.LEMON;
+import static com.example.carolinereid.fruitmachine.Symbol.PIE;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -25,12 +27,17 @@ public class FruitMachineTest {
     }
 
     @Test
-    public void testCheckAmountInBank(){
+    public void testHasName() {
+        assertEquals("Eyes on the pies", fruitMachine.getName());
+    }
+
+    @Test
+    public void testCheckAmountInBank() {
         assertEquals(500, fruitMachine.getBank());
     }
 
     @Test
-    public void testGetRandomSymbol(){
+    public void testGetRandomSymbol() {
         Symbol testSymbol = CHERRY;
         fruitMachine.getRandomSymbol();
         FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
@@ -39,27 +46,20 @@ public class FruitMachineTest {
     }
 
     @Test
-    public void testReturnsJackpot(){
-        ArrayList<Symbol> results = new ArrayList<Symbol>();
-        results.add(Symbol.PIE);
-        results.add(Symbol.PIE);
-        results.add(Symbol.PIE);
-        assertEquals("You've hit the jackpot!", fruitMachine.resultJackpot());
+    public void testReturnsJackpot() {
+        Symbol testSymbol = PIE;
+        fruitMachine.getRandomSymbol();
+        FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
+        Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
+        assertEquals("You've hit the jackpot!", spy.resultJackpot());
     }
 
-//    sometimes returns a match, sometimes doesn't. also, I'm only feeding one PIE into the function in FruitMachine.
-//    to be tested against compareResults(), using mokito to guarantee a jackpot.
+    @Test
+    public void testNoJackpot() {
+        Symbol testSymbol = LEMON;
+        fruitMachine.getRandomSymbol();
+        FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
+        Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
+        assertEquals("Keep your eyes on the pies!", spy.resultJackpot());
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
