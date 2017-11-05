@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import static com.example.carolinereid.fruitmachine.Symbol.CHERRY;
 import static com.example.carolinereid.fruitmachine.Symbol.LEMON;
+import static com.example.carolinereid.fruitmachine.Symbol.PECAN;
 import static com.example.carolinereid.fruitmachine.Symbol.PIE;
 import static org.junit.Assert.assertEquals;
 
@@ -44,6 +45,15 @@ public class FruitMachineTest {
         FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
         Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
         assertEquals(CHERRY, spy.getRandomSymbol());
+    }
+
+    @Test
+    public void testCorrectWinnings() {
+        Symbol testSymbol = PECAN;
+        fruitMachine.compareResults();
+        FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
+        Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
+        assertEquals("Congratulations!! You win £4", spy.compareResults());
     }
 
     @Test

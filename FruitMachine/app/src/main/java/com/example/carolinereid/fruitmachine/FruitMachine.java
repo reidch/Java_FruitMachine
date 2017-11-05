@@ -49,9 +49,9 @@ public class FruitMachine {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
         if (results.get(0) == results.get(1) && results.get(1) == results.get(2)) {
-            return "Congratulations!! You have won " + results.get(0).getWinnings();
+            return "Congratulations!! You win £" + results.get(0).getWinnings();
         } else {
-            return "0";
+            return "No luck this time. Try again!";
         }
     }
 
