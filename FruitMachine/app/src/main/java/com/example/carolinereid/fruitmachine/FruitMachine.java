@@ -64,4 +64,14 @@ public class FruitMachine {
             return "Keep your eyes on the pies!";
         }
     }
+
+    public int adjustBank() {
+        ArrayList<Symbol> results = new ArrayList<Symbol>();
+        results = spinWheels();
+        if (results.get(0) == results.get(1) && results.get(1) == results.get(2)) {
+            return this.bank - results.get(0).getWinnings();
+        } else {
+            return this.bank;
+        }
+    }
 }

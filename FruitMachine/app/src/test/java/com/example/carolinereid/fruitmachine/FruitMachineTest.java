@@ -10,6 +10,7 @@ import static com.example.carolinereid.fruitmachine.Symbol.CHERRY;
 import static com.example.carolinereid.fruitmachine.Symbol.LEMON;
 import static com.example.carolinereid.fruitmachine.Symbol.PECAN;
 import static com.example.carolinereid.fruitmachine.Symbol.PIE;
+import static com.example.carolinereid.fruitmachine.Symbol.PUMPKIN;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -72,5 +73,14 @@ public class FruitMachineTest {
         FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
         Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
         assertEquals("Keep your eyes on the pies!", spy.resultJackpot());
+    }
+
+    @Test
+    public void testAdjustsBank() {
+        Symbol testSymbol = PUMPKIN;
+        fruitMachine.spinWheels();
+        FruitMachine spy = Mockito.spy(new FruitMachine("Eyes on the pies", 500));
+        Mockito.when(spy.getRandomSymbol()).thenReturn(testSymbol);
+        assertEquals(495, spy.adjustBank());
     }
 }
