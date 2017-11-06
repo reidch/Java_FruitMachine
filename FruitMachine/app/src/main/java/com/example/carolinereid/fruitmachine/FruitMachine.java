@@ -12,31 +12,31 @@ public class FruitMachine {
     private String name;
     private int bank;
 
-    public FruitMachine(String name, int bank) {
+    protected FruitMachine(String name, int bank) {
         this.name = name;
         this.bank = bank;
     }
 
-    public String getName() {
+    protected String getName() {
         return this.name;
     }
 
-    public int getBank() {
+    protected int getBank() {
         return this.bank;
     }
 
-    public void setBank(int bank) {
+    private void setBank(int bank) {
         this.bank = bank;
     }
 
-    public Symbol getRandomSymbol() {
+    protected Symbol getRandomSymbol() {
         Symbol[] fruit = Symbol.values();
         Random rand = new Random();
         int newRandom = rand.nextInt(fruit.length);
         return fruit[newRandom];
     }
 
-    public ArrayList<Symbol> spinWheels() {
+    protected ArrayList<Symbol> spinWheels() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results.add(getRandomSymbol());
         results.add(getRandomSymbol());
@@ -45,7 +45,7 @@ public class FruitMachine {
         return results;
     }
 
-    public String compareResults() {
+    protected String compareResults() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
         if (results.get(0) == results.get(1) && results.get(1) == results.get(2)) {
@@ -55,7 +55,7 @@ public class FruitMachine {
         }
     }
 
-    public String resultJackpot() {
+    protected String resultJackpot() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
         if (results.get(0) == Symbol.PIE && results.get(1) == Symbol.PIE && results.get(2) == Symbol.PIE) {
@@ -65,7 +65,7 @@ public class FruitMachine {
         }
     }
 
-    public int adjustBank() {
+    protected int adjustBank() {
         ArrayList<Symbol> results = new ArrayList<Symbol>();
         results = spinWheels();
         if (results.get(0) == results.get(1) && results.get(1) == results.get(2)) {

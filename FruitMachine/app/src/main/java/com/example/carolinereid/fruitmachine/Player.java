@@ -9,20 +9,20 @@ public class Player {
     private String name;
     private int funds;
 
-    public Player(String name, int funds) {
+    protected Player(String name, int funds) {
         this.name = name;
         this.funds = funds;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public int getFunds() {
+    protected int getFunds() {
         return funds;
     }
 
-    public void setFunds(int funds) {
+    private void setFunds(int funds) {
         this.funds = funds;
     }
 }
